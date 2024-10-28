@@ -1,0 +1,43 @@
+<!-- トップページHTML -->
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>課題</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <h2>世界のひめちゃんプログラム</h2>
+    <h6>「3の倍数」または「5の倍数」の場合に画像が変化します！<br>（ひめちゃんが振り向きます）
+        <br>「3の倍数でもあり5の倍数でもある」場合は別の画像に変化します！！</h6>
+    <div id="app" class="row">
+        <div id="number_area" class="col-md-4">
+            <!-- 見出しh5で「現在の数：0」を表示する　※0は初期値、計算後は計算結果の値 -->
+            
+            計算用の数<input type="number" v-model.number="inNumber" class="form-control">
+        </div>
+        <div id="btn_area" >
+            <!-- たす、ひく、かける、わるボタンを表示する、クリック時に対応するメソッドを呼び出す
+                 classには「btn btn-primary」を設定する -->
+            
+            
+            
+            
+            <!-- リセットボタンを表示する、クリック時に対応するメソッドを呼び出す
+                 classには「btn btn-secondary」を設定する -->
+            
+            <p>リセットは現在の数と計算用の数の両方をリセットします</p>
+        </div>
+        <div id="image_area">
+            <img src="./img/hime1.jfif" width="300">
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="./script/script.js"></script>
+</body>
+
+</html>
