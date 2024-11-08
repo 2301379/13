@@ -1,52 +1,54 @@
-// JavaScript用ファイル
 new Vue({
     el: '#app',
     data() {
         return {
-            //「現在の数」表示用データ，「計算用の数」取得用データを準備する（2行）
-            
-            
+            count: 0,         // 現在の数
+            inNumber: 0       // 計算用の数
         };
     },
     methods: {
-        /* ボタン押下時に動作するメソッドを準備する（たす、ひく、かける、わる、リセット）
-           現在の数に応じて表示する画像を変更するメソッドを準備する */
         tasu() {
-            
-            
+            this.count += this.inNumber;
+            this.imageChange();
         },
         hiku() {
-            
-            
+            this.count -= this.inNumber;
+            this.imageChange();
         },
-        kake() {
-            
-            
+        kakeru() {
+            this.count *= this.inNumber;
+            this.imageChange();
         },
         waru() {
-            
-            
+            if (this.inNumber !== 0) {
+                this.count /= this.inNumber;
+            } else {
+                alert("0で割ることはできません");
+            }
+            this.imageChange();
         },
         reset() {
-            
-            
+            this.count = 0;
+            this.inNumber = 0;
+            this.imageChange();
         },
         imageChange() {
-            //HTMLからimage_areaの情報を取得する
-            
-            //現在の数が0の場合「hime1.jfif」をimage_areaに表示する（<img src="./img/hime1.jfif" width="300">）
-            
-                
-            //現在の数が3の倍数かつ5の倍数の場合「hime3.png」をimage_areaに表示する（<img src="./img/hime3.png" width="300">）
-            
-                
-            //現在の数が3の倍数または5の倍数の場合「hime2.jfif」をimage_areaに表示する（<img src="./img/hime2.jfif" width="300">）
-            
-                
-            //上記以外の場合「hime1.jfif」をimage_areaに表示する（<img src="./img/hime1.jfif" width="300">）
-            
-                
-            
+            // HTMLから image_area を取得
+            const imageArea = document.getElementById('image_area');
+
+            if (this.count === 0) {
+                // 現在の数が 0 の場合
+                imageArea.innerHTML = '<img src="./img/hime1.jfif" width="300">';
+            } else if (this.count % 3 === 0 && this.count % 5 === 0) {
+                // 3の倍数かつ5の倍数
+                imageArea.innerHTML = '<img src="./img/hime3.png" width="300">';
+            } else if (this.count % 3 === 0 || this.count % 5 === 0) {
+                // 3の倍数または5の倍数
+                imageArea.innerHTML = '<img src="./img/hime2.jfif" width="300">';
+            } else {
+                // 上記以外
+                imageArea.innerHTML = '<img src="./img/hime1.jfif" width="300">';
+            }
         }
     }
 });
